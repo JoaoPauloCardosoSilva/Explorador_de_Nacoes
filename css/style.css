@@ -1,0 +1,142 @@
+/* Configurações Gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Container do Catálogo usando Grid */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilização dos Cards */
+.pais-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
+    width: fit-content;  /* O card se ajusta ao tamanho da imagem */
+    margin: 0 auto;     /* Centraliza o card no seu espaço do grid */
+}
+
+.pais-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+/* Estilo das Imagens/Links */
+.pais-card img {
+    
+    height: 80px;
+    object-fit: contain; /* Mantém a proporção sem deformar */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    
+}
+
+/* Efeito Hover na Bandeira */
+.pais-card img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+/* Estilos específicos para a página de detalhes do país */
+.conteudo-pais {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left; /* Conteúdo de leitura é melhor alinhado à esquerda */
+}
+
+.bandeira-detalhe {
+    height: 120px;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #eee;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em duas colunas */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.info-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-left: 5px solid #2c3e50;
+    border-radius: 5px;
+}
+
+.info-item h2 {
+    font-size: 1.2rem;
+    color: #e74c3c; /* Cor de destaque para o título */
+    margin-top: 0;
+}
+
+/* Responsividade para celular: vira uma coluna só */
+@media (max-width: 600px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Container das fotos na página de detalhes */
+.fotos-container {
+    display: flex;          /* Coloca lado a lado */
+    justify-content: center; /* Centraliza no meio do card */
+    align-items: center;    /* Alinha as bases das imagens */
+    gap: 40px;              /* Espaço entre a bandeira e o mapa */
+    margin-bottom: 25px;    /* Espaço antes do texto de introdução */
+}
+
+/* Ajuste da bandeira */
+.bandeira-detalhe {
+    height: 100px;          /* Altura fixa */
+    width: auto;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Ajuste do mapa/globo */
+.mapa-detalhe {
+    height: 180px;          /* O mapa pode ser um pouco maior para aparecer os detalhes */
+    width: auto;
+}
+
+/* Ajuste para telas de celular */
+@media (max-width: 600px) {
+    .fotos-container {
+        flex-direction: column; /* Em telas pequenas, volta a ser um embaixo do outro */
+        gap: 20px;
+    }
+}
