@@ -11,11 +11,16 @@
 
     <header>
         <center>
-        <h1>Explorador de Nações</h1>
-            <p>Clique na bandeira para saber mais sobre
-               o país.
-            </p>
+             <h1>Explorador de Nações</h1>
+                 <p>Clique na bandeira para saber mais sobre o país. </p>
+            
+         
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar país..." onkeyup="filterCountries()">
+            </div>
         </center>
+
+
     </header>
     
     <main class="container">
@@ -23,6 +28,7 @@
            
             <a href="brasil.html" target="_blank">
                 <img src="img/brasil.png" alt="Bandeira do Brasil">
+                
             </a>
         </article>
 
@@ -30,6 +36,7 @@
             
             <a href="japao.html"_blank">
                 <img src="img/japao.png" alt="Bandeira do Japão">
+                
             </a>
         </article>
 
@@ -132,5 +139,29 @@
         <p>&copy; 2026 - Projeto Técnico Web - Escola Maria Bauab Gibram</p>
     </footer>
 
+
+
+    <script>
+function filterCountries() {
+    // 1. Pega o que o usuário digitou e transforma em minúsculo
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    
+    // 2. Seleciona todos os cards de países
+    let cards = document.querySelectorAll('.pais-card');
+
+    cards.forEach(card => {
+        // 3. Pega a imagem dentro do card e lê o texto do 'alt'
+        let img = card.querySelector('img');
+        let countryName = img ? img.getAttribute('alt').toLowerCase() : "";
+        
+        // 4. Se o nome do país contém o que foi digitado, mostra. Se não, esconde.
+        if (countryName.includes(input)) {
+            card.style.display = ""; // Volta ao padrão do CSS (flex ou block)
+        } else {
+            card.style.display = "none"; // Esconde o card
+        }
+    });
+}
+</script>
 </body>
 </html>
